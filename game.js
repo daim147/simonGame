@@ -5,8 +5,9 @@ let level = 0
 let gameLevel = document.getElementById("level-title")
 
 const buttons = document.querySelectorAll(".btn")
-
+gameLevel.addEventListener("click", randomNumber)
 document.addEventListener("keydown", randomNumber)
+
 function randomNumber() {
     level++
     gameLevel.innerText = ` level  ${level}`
@@ -44,9 +45,11 @@ function checkAnswer() {
         gameLevel.innerText = `Game Over , Press any key to Start game`
         gamePattern = []
         myPattern = []
-        document.addEventListener("keypress", ()=>{
+        setTimeout(()=>{
+
             document.querySelector("body").classList.remove("game-over")
-        })
+        },2000)
+        
         
         level = 0
 
